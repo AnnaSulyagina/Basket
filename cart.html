@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина — Tea Harmony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Общие стили, включая стили карточек -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        
+        <!-- ФИКСИРОВАННАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+        <header class="top-navbar">
+            <div class="brand-group">
+                <div class="brand-container">
+                    <img src="img/лого.png" alt="Tea Harmony" class="logo-img">
+                </div>
+            </div>
+            <nav class="main-menu">
+                <a href="index.html">Каталог</a>
+                <a href="orders.html">Заказы</a>
+                <a href="cart.html">Корзина</a>
+            </nav>
+        </header>
+
+        <!-- БАННЕР -->
+        <div class="hero-banner">
+            <h1 class="hero-title-overlay">Гармония вкуса в каждом глотке</h1>
+        </div>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ КОРЗИНЫ -->
+        <div class="content-wrapper">
+            
+            <!-- ЛЕВАЯ ЧАСТЬ: СЕТКА ТОВАРОВ (КАК В ВАШЕМ КОДЕ) -->
+            <main class="products-grid" id="cart-grid">
+                <!-- Карточки товаров будут сгенерированы через JS с использованием этой структуры -->
+            </main>
+
+            <!-- ПРАВАЯ ЧАСТЬ: ОФОРМЛЕНИЕ -->
+            <aside class="cart-sidebar">
+                <div class="cart-title">Оформление</div>
+                
+                <div class="cart-summary">
+                    <div class="summary-row"><span>Всего товаров:</span><span id="total-items">0 шт.</span></div>
+                    <div class="summary-row"><span>Общий вес:</span><span id="total-weight">0 г</span></div>
+                    <div class="summary-row summary-total"><span>Итого:</span><span id="total-price">0 ₽</span></div>
+                </div>
+
+                <div class="checkout-form">
+                    <div class="address-selector" id="open-address-modal">
+                        <span class="address-text" id="selected-address">Выберите адрес магазина</span>
+                        <span class="address-btn-icon">▼</span>
+                    </div>
+                    <div class="payment-options">
+                        <label class="payment-btn"><input type="radio" name="payment" value="Наличными" checked>Наличными</label>
+                        <label class="payment-btn"><input type="radio" name="payment" value="Картой при получении">Картой при получении</label>
+                        <label class="payment-btn"><input type="radio" name="payment" value="Онлайн">Онлайн</label>
+                    </div>
+                    <button class="checkout-btn" id="checkout-btn">Оформить заказ</button>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Модальное окно адресов -->
+    <div class="modal-overlay" id="address-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Выберите адрес</span>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="address-list">
+                <div class="address-item" data-address="ул. Пушкина, д. 10">ул. Пушкина, д. 10 (ТЦ "Галерея", 1 этаж)</div>
+                <div class="address-item" data-address="пр. Ленина, д. 25">пр. Ленина, д. 25 (Кофейня "Чайный дом")</div>
+                <div class="address-item" data-address="ул. Садовая, д. 5">ул. Садовая, д. 5 (ТЦ "Цветной", 2 этаж)</div>
+                <div class="address-item" data-address="наб. Реки Мойки, д. 12">наб. Реки Мойки, д. 12 (Бизнес-центр "Сити")</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Логика корзины -->
+    <script src="js/cart.js"></script>
+</body>
+</html>

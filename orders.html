@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы — Tea Harmony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/orders.css">
+</head>
+<body>
+    <div class="main-container">
+                <!-- ФИКСИРОВАННАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+        <header class="top-navbar">
+            <div class="brand-group">
+                <div class="brand-container">
+                    <img src="img/лого.png" alt="Tea Harmony" class="logo-img">
+                </div>
+            </div>
+            <nav class="main-menu">
+                <a href="index.html">Каталог</a>
+                <a href="orders.html">Заказы</a>
+                <a href="cart.html">Корзина</a>
+            </nav>
+        </header>
+
+        <!-- БАННЕР (независимый от панели) -->
+        <div class="hero-banner">
+            <h1 class="hero-title-overlay">Гармония вкуса в каждом глотке</h1>
+        </div>
+
+        <div class="content-wrapper" style="grid-template-columns: 1fr;">
+            <div class="orders-list" id="orders-list">
+                <!-- Заказы будут сгенерированы скриптом -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/orders.js"></script>
+</body>
+</html>

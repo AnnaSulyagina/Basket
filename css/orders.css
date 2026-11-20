@@ -1,0 +1,76 @@
+/* ==================== СТРАНИЦА ЗАКАЗОВ ==================== */
+.orders-list {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.order-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.order-item summary {
+    padding: 15px 20px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "El Messiri", sans-serif;
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+    transition: background 0.2s;
+}
+
+.order-item summary::-webkit-details-marker { display: none; }
+.order-item summary:hover { background: rgba(255, 255, 255, 0.05); }
+
+.order-summary-info {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.order-details-content {
+    padding: 0 20px 20px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.order-details-content p {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.order-items-table th, .order-items-table td {
+    text-align: left;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.order-items-table th { color: #889679; font-weight: normal; }
+
+.order-total {
+    font-family: "El Messiri", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 15px;
+    text-align: right;
+}

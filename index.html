@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — Tea Harmony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/catalog.css">
+</head>
+<body>
+    <div class="main-container">
+        
+        <!-- ШАПКА -->
+        <header class="top-navbar">
+            <div class="brand-group">
+                <div class="brand-container">
+                    <img src="img/лого.png" alt="Tea Harmony" class="logo-img">
+                </div>                
+            </div>
+            <nav class="main-menu">
+                <a href="index.html">Каталог</a>
+                <a href="orders.html">Заказы</a>
+                <a href="cart.html">Корзина</a>
+            </nav>
+        </header>
+
+        <!-- БАННЕР -->
+        <div class="hero-banner">
+            <h1 class="hero-title-overlay">Гармония вкуса в каждом глотке</h1>
+        </div>
+
+        <!-- КАТАЛОГ -->
+        <main class="catalog-wrapper" id="catalog-grid"></main>
+
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: 'Те Гуань Инь', category: 'Зелёный чай', price: 850, weight: 100, img: 'img/товар (1).png', desc: 'Классический улун с цветочным ароматом и мягким сливочным послевкусием. Обладает освежающим эффектом.' },
+            { id: 2, name: 'Да Хун Пао', category: 'Чёрный чай', price: 1200, weight: 100, img: 'img/товар (2).png', desc: 'Легендарный темный улун с глубоким минеральным вкусом и нотами печеной груши. Согревающий и бодрящий.' },
+            { id: 3, name: 'Шу Пуэр', category: 'Чёрный чай', price: 950, weight: 100, img: 'img/товар (3).png', desc: 'Плотный и землистый вкус с нотками влажного дерева и чернослива. Отлично тонизирует и согревает.' },
+            { id: 4, name: 'Лунцзин', category: 'Зелёный чай', price: 700, weight: 100, img: 'img/товар (4).png', desc: 'Знаменитый зеленый чай с плоскими листьями. Обладает свежим травянистым вкусом и ароматом жареных каштанов.' },
+            { id: 5, name: 'Белый Пион', category: 'Белый чай', price: 1100, weight: 100, img: 'img/товар (5).jpg', desc: 'Нежный белый чай с цветочными и медовыми нотами. Мягкий, сладковатый и очень ароматный напиток.' },
+            { id: 6, name: 'Дянь Хун', category: 'Чёрный чай', price: 650, weight: 100, img: 'img/пиала (2).png', desc: 'Красный чай из провинции Юньнань. Характеризуется солодовым вкусом с оттенками шоколада и сухофруктов.' }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('teaCart')) || [];
+        const catalogGrid = document.getElementById('catalog-grid');
+
+        products.forEach((p) => {
+            const inCart = cart.find(i => i.id === p.id);
+            const block = document.createElement('div');
+            block.className = 'feature-block';
+            block.innerHTML = `
+                <div class="block-image" style="background-image: url('${p.img}');"></div>
+                <div class="block-content">
+                    <div class="block-category">${p.category}</div>
+                    <h2 class="block-title">${p.name}</h2>
+                    <p class="block-desc">${p.desc}</p>
+                    <div class="block-weight">Вес: ${p.weight} г</div>
+                    <div class="block-footer">
+                        <div class="block-price">${p.price} ₽</div>
+                        <button class="btn-add ${inCart ? 'in-cart' : ''}" data-id="${p.id}">
+                            ${inCart ? 'В корзине' : 'Добавить в корзину'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            catalogGrid.appendChild(block);
+        });
+
+        catalogGrid.addEventListener('click', (e) => {
+            if (e.target.classList.contains('btn-add')) {
+                const btn = e.target;
+                const id = parseInt(btn.dataset.id);
+                const existing = cart.find(i => i.id === id);
+
+                if (existing) {
+                    cart = cart.filter(i => i.id !== id);
+                    btn.textContent = 'Добавить в корзину';
+                    btn.classList.remove('in-cart');
+                } else {
+                    cart.push({ id, qty: 1 });
+                    btn.textContent = 'В корзине';
+                    btn.classList.add('in-cart');
+                }
+                localStorage.setItem('teaCart', JSON.stringify(cart));
+            }
+        });
+    </script>
+</body>
+</html>
